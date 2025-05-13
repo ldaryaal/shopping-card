@@ -16,6 +16,11 @@ function eventListeners(){
     //remove courses from card 
     shoppinCardContent.addEventListener("click", removeCourse)
 
+    //remove all courses from card
+    clearCardBtn.addEventListener("click", clearCard)
+
+    
+
 }
 
 
@@ -75,16 +80,12 @@ function addToCard(cInfo){
     shoppinCardContent.appendChild(row)
 }
 
-//this function removes items from our shopping basket
-function removeCourse(){
-
-}
 
 //this function saves the information to the local storage
 function saveToStorage(cInfo){
     //gets previous data from our localStorage
     let courses = getFromStorage()
-
+    
     //add the new course to the array that we get from
     courses.push(cInfo)
 
@@ -105,3 +106,50 @@ function getFromStorage(){
     }
     return courses
 }
+
+//this function removes items from our shopping basket
+function removeCourse(e){
+    let course , courseId;
+    //this if will delete the course from DOM/not LS
+    if (e.target.classList.contains("remove")){
+        course = e.target.parentElement.parentElement
+        courseId = course.querySelector("a").getAttribute("data-id")
+        course.remove()
+    }
+
+    //remove course from Local storage
+    removeCourseLS(courseId)
+
+}
+
+//this function will remove the course from local storage/ after it deleted from DOM
+function removeCourseLS(id){
+    let courseLS = getFromStorage()
+    courseLS.forEach(function(course, index) {
+        if (course.id === id){
+            courseLS.splice(index , 1)
+
+        }  
+    });
+    localStorage.setItem("courses", JSON.stringify(courseLS))
+}
+
+
+//remove all courses from DOM
+function clearCard(){
+    while (shoppinCardContent.firstChild) {
+        shoppinCardContent.firstChild.remove()
+        
+    }
+
+    //now it't time to clear the local storage!
+    clearCardLS()
+}
+
+// this function clears card from LS
+function clearCardLS(){
+    localStorage.clear()
+    //it's a risky code but since we only want to store shopping card data in LS, it's fine!
+
+}
+
