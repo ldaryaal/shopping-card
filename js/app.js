@@ -86,4 +86,22 @@ function saveToStorage(cInfo){
     let courses = getFromStorage()
 
     //add the new course to the array that we get from
+    courses.push(cInfo)
+
+    localStorage.getItem("course",JSON.stringify(courses))
+}  
+
+//this function gets info from local storage
+
+function getFromStorage(){
+    let courses;
+    //boolian to check if there exists any data before in LS
+    if (localStorage.getItem("courses")) {
+        //because data is saved as a string & we should return it as an array:
+        courses = JSON.parse(localStorage.getItem("courses"))
+    }else {
+        courses = []
+        
+    }
+    return courses
 }
