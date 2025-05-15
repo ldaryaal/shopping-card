@@ -24,5 +24,19 @@ I used this project to practice DOM manipulation, event listeners, and working w
 
 ---
 
-## 📁 Files in the project
+## 🔧 Tools I used
+
+- HTML5
+- CSS3
+- JavaScript (Vanilla, no libraries)
+
+---
+
+##🚀 Next steps (maybe later)
+
+- Try to make it using **OOP (Object Oriented Programming)**.
+- Add quantity counters and prices calculator.
+- Make it look nicer with better CSS.
+- Try to use a framework (like React) to see the difference.
+
 
