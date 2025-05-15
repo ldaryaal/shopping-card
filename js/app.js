@@ -19,6 +19,9 @@ function eventListeners(){
     //remove all courses from card
     clearCardBtn.addEventListener("click", clearCard)
 
+    //show  courses from storage when browser loaded
+    document.addEventListener("DOMContentLoaded", showCoursesOnLoad)
+
     
 
 }
@@ -142,7 +145,7 @@ function clearCard(){
         
     }
 
-    //now it't time to clear the local storage!
+    //now it's time to clear the local storage!
     clearCardLS()
 }
 
@@ -151,5 +154,33 @@ function clearCardLS(){
     localStorage.clear()
     //it's a risky code but since we only want to store shopping card data in LS, it's fine!
 
+}
+
+// this function shows the courses in the shopping card from LS even after refreshing or closing & re-opening the page
+function showCoursesOnLoad(){
+    let coursesLS = getFromStorage();
+
+    //add courses into the card 
+    coursesLS.forEach(function(cInfo) {
+        // creating <li> tag 
+        let row = document.createElement("tr")
+
+        //building HTML template
+        row.innerHTML = `
+            <tr>
+                <td>
+                    <img src = '${cInfo.image}' width ="100px">
+                </td>
+                <td> ${cInfo.title}</td>
+                <td> ${cInfo.price}</td>
+                <td>
+                    <a class = "remove" href = "#" data-id = "${cInfo.id}">X</a>
+                </td>
+            </tr>
+        
+        `
+        shoppinCardContent.appendChild(row)
+        
+    });
 }
 
