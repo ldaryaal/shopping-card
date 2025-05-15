@@ -3,6 +3,7 @@
 Hi! This is a **practice project** I made while learning JavaScript.  
 It’s a basic **shopping card** (like adding courses to a basket) using only **Vanilla JavaScript**, **HTML**, and a bit of **CSS**.  
 I used this project to practice DOM manipulation, event listeners, and working with Local Storage.
+The source of this HTML & CSS is belongs to other site, I manipulated some parts of it.
 
 ---
 
