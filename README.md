@@ -39,4 +39,10 @@ I used this project to practice DOM manipulation, event listeners, and working w
 - Make it look nicer with better CSS.
 - Try to use a framework (like React) to see the difference.
 
+  ## Demo
+
+Here is a quick demo of how the shopping card works:
+
+![Shopping Card Demo](shoppingcardpractice-GoogleChrome2025-05-1517-48-31-ezgif.com-crop.gif)
+
 
