@@ -1,13 +1,18 @@
+
+
 body {
     background-color: #fff6f6;
-    direction: rtl;
-    font-family: vazir-medium;
+    direction: ltr;
+
+    font-family: 'Inter', sans-serif;
+
 }
+
 h1 {
     text-align: center;
 }
 h4 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
 }
 header {
@@ -44,10 +49,10 @@ ul {
     position: relative;
 }
 
-.submenu #shopping-cart{
+.submenu #shopping-card{
     display: none;
 }
-.submenu:hover #shopping-cart{
+.submenu:hover #shopping-card{
     display: block;
     position: absolute;
     right:0;
@@ -75,7 +80,7 @@ ul {
     height: 50px;
     margin-bottom: 0;
 }
-.hero-content form .submit-search-course {
+/* .hero-content form .submit-search-course {
     position: absolute;
     right:0;
     top:0;
@@ -88,6 +93,27 @@ ul {
     background-position: left center;
     background-repeat: no-repeat;
     border:none;
+} */
+ .hero-content form #search-course {
+    width: 100%;
+    height: 50px;
+    padding-right: 50px; /* Space for the button */
+    box-sizing: border-box;
+}
+
+.hero-content form .submit-search-course {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/mglass.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-indent: -9999px;
 }
 
 
@@ -135,7 +161,7 @@ ul {
 #courses-list .row {
     margin-bottom:20px;
 }
-.add-to-cart {
+.add-to-card {
     margin:10px 0;
 }
 .card {
@@ -150,7 +176,7 @@ ul {
 }
 .info-card  {
     padding: 10px 20px;
-    text-align: right;
+    text-align: left;
 }
 .info-card p,
 .card h4 {
@@ -179,54 +205,3 @@ margin-bottom: 10px;
 text-decoration: none;
 }
 
-
-@font-face {
-    font-family: Vazir;
-    src: url('Vazir-Bold.eot');
-    src: url('Vazir-Bold.eot?#iefix') format('embedded-opentype'),
-         url('Vazir-Bold.woff2') format('woff2'),
-         url('Vazir-Bold.woff') format('woff'),
-         url('Vazir-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-@font-face {
-    font-family: Vazir-bold;
-    src: url('Vazir-Black.eot');
-    src: url('Vazir-Black.eot?#iefix') format('embedded-opentype'),
-         url('Vazir-Black.woff2') format('woff2'),
-         url('Vazir-Black.woff') format('woff'),
-         url('Vazir-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-}
-@font-face {
-    font-family: Vazir-medium;
-    src: url('Vazir-Medium.eot');
-    src: url('Vazir-Medium.eot?#iefix') format('embedded-opentype'),
-         url('Vazir-Medium.woff2') format('woff2'),
-         url('Vazir-Medium.woff') format('woff'),
-         url('Vazir-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-@font-face {
-    font-family: Vazir;
-    src: url('Vazir-Light.eot');
-    src: url('Vazir-Light.eot?#iefix') format('embedded-opentype'),
-         url('Vazir-Light.woff2') format('woff2'),
-         url('Vazir-Light.woff') format('woff'),
-         url('Vazir-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-@font-face {
-    font-family: Vazir;
-    src: url('Vazir-Thin.eot');
-    src: url('Vazir-Thin.eot?#iefix') format('embedded-opentype'),
-         url('Vazir-Thin.woff2') format('woff2'),
-         url('Vazir-Thin.woff') format('woff'),
-         url('Vazir-Thin.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
-}

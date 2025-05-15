@@ -8,7 +8,7 @@ const courses = document.querySelector("#courses-list"),
 
 
 //eventListeners
-addEventListener()
+eventListeners()
 function eventListeners(){
 
     courses.addEventListener("click", buyCourse)
@@ -46,16 +46,16 @@ function buyCourse(e){
 function getCourseInfo(course){
     //course info 
     const courseInfo = {
-        Image : course.querySelector("img").src,
+        image : course.querySelector("img").src,
         title : course.querySelector("h4").textContent,
         price : course.querySelector("span").textContent,
-        id : course.querySelector("a")[1].getAttribute("data-id")
+        id : course.querySelectorAll("a")[1].getAttribute("data-id")
     }
 
     //adding the course to the card
     addToCard(courseInfo)
 
-    saveToStorage(cInfo)
+    saveToStorage(courseInfo)
 
 }
 
@@ -63,11 +63,11 @@ function getCourseInfo(course){
 //this function adds the selected courses to the shopping card
 function addToCard(cInfo){
     //create <li> tag
-    let row = document.querySelector("tr")
+    let row = document.createElement("tr")
 
     //build HTML template
     row.innerHTML = `
-        <tr>
+        
             <td>
                 <img src = "${cInfo.image}" width = "100px">
             </td>
@@ -76,7 +76,7 @@ function addToCard(cInfo){
             <td> 
                 <a class = "remove" href = "#" data-id = ${cInfo}">X</a>
             </td>
-        </tr>
+        
     
     `
 
@@ -92,7 +92,7 @@ function saveToStorage(cInfo){
     //add the new course to the array that we get from
     courses.push(cInfo)
 
-    localStorage.getItem("course",JSON.stringify(courses))
+    localStorage.setItem("courses",JSON.stringify(courses))
 }  
 
 //this function gets info from local storage
@@ -116,7 +116,7 @@ function removeCourse(e){
     //this if will delete the course from DOM/not LS
     if (e.target.classList.contains("remove")){
         course = e.target.parentElement.parentElement
-        courseId = course.querySelector("a").getAttribute("data-id")
+        courseId = e.target.getAttribute("data-id")
         course.remove()
     }
 
@@ -167,7 +167,7 @@ function showCoursesOnLoad(){
 
         //building HTML template
         row.innerHTML = `
-            <tr>
+            
                 <td>
                     <img src = '${cInfo.image}' width ="100px">
                 </td>
@@ -176,7 +176,7 @@ function showCoursesOnLoad(){
                 <td>
                     <a class = "remove" href = "#" data-id = "${cInfo.id}">X</a>
                 </td>
-            </tr>
+            
         
         `
         shoppinCardContent.appendChild(row)
